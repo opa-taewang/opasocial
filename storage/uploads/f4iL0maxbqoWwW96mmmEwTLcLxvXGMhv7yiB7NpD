@@ -1,0 +1,91 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: Sep 16, 2019 at 02:01 AM
+-- Server version: 10.2.26-MariaDB-cll-lve
+-- PHP Version: 7.2.7
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `mxz123_dev`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `licensecodes`
+--
+
+CREATE TABLE `licensecodes` (
+  `id` int(11) NOT NULL,
+  `code` varchar(25) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `available` tinyint(1) DEFAULT NULL,
+  `purchase_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` date DEFAULT NULL,
+  `updated_at` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `licensecodes`
+--
+
+INSERT INTO `licensecodes` (`id`, `code`, `available`, `purchase_by`, `created_at`, `updated_at`) VALUES
+(1, 'FQK3M', 0, 'ue6120@gmail.com', '2019-08-17', '2019-08-17'),
+(2, 'PFDCC', 0, 'luze@gmail.com', '2019-08-17', '2019-08-17'),
+(3, 'MNFDC', 0, 'luze@gmail.com', '2019-08-17', '2019-08-17'),
+(4, 'FSK3M', 0, 'ue6120@gmail.com', '2019-08-17', '2019-08-17'),
+(5, 'LPFDC', 1, NULL, '2019-08-17', '2019-08-17'),
+(6, 'code3', 0, 'ue6120@gmail.com', '2019-08-17', '2019-08-17'),
+(7, 'code7', 0, NULL, '2019-08-17', '2019-08-17'),
+(8, 'code1', 0, 'ue6120@gmail.com', '2019-08-18', '2019-08-18'),
+(9, 'code2', 0, 'ue6120@gmail.com', '2019-08-18', '2019-08-18'),
+(10, 'code4', 0, 'sparkit4you33@gmail.com', '2019-08-19', '2019-08-19'),
+(11, '', 0, 'ue6120@gmail.com', '2019-08-19', '2019-08-19'),
+(12, 'code5', 0, 'ue6120@gmail.com', '2019-08-19', '2019-08-19'),
+(13, 'code6', 0, 'ue6120@gmail.com', '2019-08-19', '2019-08-19'),
+(14, 'first', 0, 'ue6120@gmail.com', '2019-08-19', '2019-08-19'),
+(15, 'lllllll', 0, 'smmscripts789@gmail.com', '2019-08-19', '2019-08-19'),
+(16, 'code8ssss', 0, 'ue6120@gmail.com', '2019-08-19', '2019-08-20'),
+(17, 'jjjjjj', 0, 'sparkit4you@gmail.com', '2019-08-22', '2019-08-22'),
+(18, 'lllll', 0, 'user@user.com', '2019-08-22', '2019-08-22'),
+(19, 'nnnnn', 0, 'user@user.com', '2019-08-22', '2019-08-22'),
+(20, 'code8', 0, 'user@user.com', '2019-08-22', '2019-08-22'),
+(21, 'code9', 0, 'ue6120@gmail.com', '2019-09-06', '2019-09-06');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `licensecodes`
+--
+ALTER TABLE `licensecodes`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `code` (`code`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `licensecodes`
+--
+ALTER TABLE `licensecodes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

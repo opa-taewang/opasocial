@@ -1,0 +1,1 @@
+<a href="{{ url('/support/ticket/'.$id) }}" class="btn btn-primary btn-sm">View Ticket</a>

@@ -1,0 +1,6 @@
+{
+    "require": {
+        "razorpay/razorpay": "^2.5",
+        "charlesassets/laravel-perfectmoney": "^1.0"
+    }
+}

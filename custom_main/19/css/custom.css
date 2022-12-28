@@ -1,0 +1,241 @@
+/***** LOGIN PAGE START ******/
+/* VIDEO BACKGROUND SETTING */
+#myVideo {
+position: fixed;
+ right: 0;
+ bottom: 0;
+ min-width: 100%;
+ min-height: 100%;
+ width: auto;
+ height: auto;
+ z-index: -100;
+}
+/* CENTER CONTENT */
+.custom-container-signin{
+	margin-top:3%;
+}
+.custom-signin-form{
+  margin-top: 50%;
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: rgba(15,15,15,0.8);
+  border-radius: 10px;
+  border: 2px solid rgba(15,15,15,0.8);
+  -webkit-box-shadow: 6px 4px 16px 0px rgb(225,225,225,0.75);
+  -moz-box-shadow: 6px 4px 16px 0px rgb(225,225,225,0.75);
+  box-shadow: 6px 4px 16px 0px rgb(225,225,225,0.75);
+}
+.well {
+    margin-top: 5%;
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: rgba(15,15,15,0.8);
+    border-radius: 10px;
+    border: 2px solid rgba(15,15,15,0.8);
+    -webkit-box-shadow: 6px 4px 16px 0px rgb(225,225,225,0.75);
+    -moz-box-shadow: 6px 4px 16px 0px rgb(225,225,225,0.75);
+    box-shadow: 6px 4px 16px 0px rgb(225,225,225,0.75);
+}
+.logo-signin {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 380px;
+    height: 380px;
+    margin-bottom: -3%;
+    margin-top: -5%;
+}
+.logo-signup {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 380px;
+    height: 380px;
+    margin-bottom: -3%;
+    margin-top: -5%;
+}
+.signup-header{
+  text-align:center;
+  font-size:40px;
+  color: #feb304;
+}
+@media only screen and (max-width: 600px) {
+  .logo-signup {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 300px;
+      height: 300px;
+      margin-bottom: -3%;
+      margin-top: -5%;
+  }
+  .signup-header{
+    text-align:center;
+    font-size:30px;
+    color: #feb304;
+  }
+}
+/*IMAGE START*/
+.img-container {
+  position: relative;
+  animation-duration: 4s;
+}
+
+.img-dwayne {
+  position: absolute;
+  top: 0%;
+  left: -1%;
+}
+.img-downey {
+  position: absolute;
+  top: 0;
+  left: 15%;
+}
+.img-johncena {
+  position: absolute;
+  top: 0;
+  left: 30%;
+}
+.img-will {
+  position: absolute;
+  top: 0;
+  left: 45%;
+}
+.img-shakh {
+  position: absolute;
+  top: 0;
+  left: 60%;
+}
+.img-jonny {
+  position: absolute;
+  top: 0;
+  left: 75%;
+}
+.img-therock{
+  position: absolute;
+  top: 0;
+  margin-top:15% !important;
+  margin-left:-5% !important;
+}
+
+@media screen and (max-width: 600px) {
+    .img-container {
+    display:none;
+  }
+
+  .img-dwayne {
+    display:none;
+  }
+  .img-downey {
+    display:none;
+  }
+  .img-johncena {
+    display:none;
+  }
+  .img-will {
+    display:none;
+  }
+  .img-shakh {
+    display:none;
+  }
+  .img-jonny {
+    display:none;
+  }
+}
+/*IMAGE END*/
+.form-group.inputDiv::after {
+    content: '';
+    background: transparent !important;
+
+}
+.login-label{
+	color:#fff !important;
+  font-weight:bold !important;
+}
+.form-group.inputDiv:nth-child(2) {
+
+    margin-left: 0px !important;
+
+}
+
+.btn-signin-custom{
+	background-color: #FFD700;
+    border:none;
+  	font-size:14px;
+  font-weight:bold;
+  text-transform:uppercase;
+}
+.btn-signin-custom:hover{
+	background-color: #A0522D;
+  border:none;
+  font-size:14px;
+  font-weight:bold;
+  text-transform:uppercase;
+}
+.forgot-password {
+    color: #FFD700;
+    font-size: 11.5px;
+    font-weight: bold;
+}
+/***** LOGIN PAGE END ******/
+/*FAQ START*/
+.faq-title-text{
+  color:#fbcb19;
+  font-family:Poppins;
+  font-size:30px;
+  font-weight:bold;
+  text-align:center;
+}
+.faq-strong-text{
+  color:#8f5ee7;
+}
+.faq-p-text{
+  color:#fff;
+  font-family:Poppins;
+  font-size:14px;
+  line-height:1.5;
+}
+.faq-h2-text{
+  color:#fbcb19;
+  font-family:Poppins;
+  font-size:18px;
+  font-weight:bold;
+  line-height:1.5;
+}
+/*FAQ END*/
+/* SIGN UP TEXT AT LOGIN FORM START*/
+.signup-text{
+color:#fff;
+font-size:12px
+}
+.signup-link{
+color:#FFD700;
+font-size:12px;
+font-weight:bold;
+text-transform:uppercase;
+}
+.signup-link:hover{
+color:#fb19ae;
+font-size:12px;
+font-weight:bold;
+text-transform:uppercase;
+}
+@media only screen and (max-width: 600px) {
+.signup-text{
+font-size:8px
+}
+.signup-link{
+ font-size:8px;
+ font-weight:bold;
+ text-transform:uppercase;
+}
+.signup-link:hover{
+color:#fb19ae;
+ font-size:8px;
+ font-weight:bold;
+ text-transform:uppercase;
+}
+}
+/* SIGN UP TEXT AT LOGIN FORM END*/

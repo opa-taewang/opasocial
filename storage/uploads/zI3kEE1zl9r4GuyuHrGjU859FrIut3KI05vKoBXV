@@ -1,0 +1,452 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: May 31, 2019 at 01:09 AM
+-- Server version: 5.6.43-cll-lve
+-- PHP Version: 7.2.7
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `books4u`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `username` text NOT NULL,
+  `password` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `username`, `password`) VALUES
+(1, 'admin', 'admin123');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admob`
+--
+
+CREATE TABLE `admob` (
+  `id` int(11) NOT NULL,
+  `admob_app_id` text NOT NULL,
+  `admob_banner_id` text NOT NULL,
+  `admob_interstitial_id` text NOT NULL,
+  `publisher_id` text NOT NULL,
+  `privacy_url` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admob`
+--
+
+INSERT INTO `admob` (`id`, `admob_app_id`, `admob_banner_id`, `admob_interstitial_id`, `publisher_id`, `privacy_url`) VALUES
+(1, 'ca-app-pub-3940256099942544~3347511713', 'ca-app-pub-3940256099942544/6300978111', 'ca-app-pub-3940256099942544/1033173712', 'publisher id', 'publisher url');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `artist`
+--
+
+CREATE TABLE `artist` (
+  `id` int(11) NOT NULL,
+  `title` text NOT NULL,
+  `description` text NOT NULL,
+  `pictureUrl` text NOT NULL,
+  `isEnable` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `artist`
+--
+
+INSERT INTO `artist` (`id`, `title`, `description`, `pictureUrl`, `isEnable`) VALUES
+(21, 'Dj Snake', 'Working', 'author_05.png', 0),
+(22, 'Tanishk Bagchi', 'Working', 'author_03.png', 0),
+(23, 'Luis Fonsi', 'George Berkowski is an entrepreneur who has built businesses in manned space flight, online dating, transportation and mobile apps. He is one of the minds behind the internationally successful taxi hailing app Hailo where he led the product team until September 2013', 'author_02.png', 0),
+(24, 'J.k Rowlings', '<p><span style=\"color: #000000;\">In 2017, according to Forbes, her estimated\'s wealth stands at $650 million, it would be higher but she has donated substantial sums to charity.</span></p>', 'jk_rowling.png', 0),
+(25, 'Cixin lui', '<p><span style=\"color: #000000;\">Cixin Liu. Liu Cixin, born in June 1963, is a representative of the new generation of Chinese science fiction authors and recognized as a leading voice in Chinese science fiction. He was awarded the China Galaxy Science Fiction Award for eight consecutive years, from 1999 to 2006 and again in 2010</span></p>', 'cixin_lui.png', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL,
+  `title` varchar(1000) NOT NULL,
+  `pictureUrl` text NOT NULL,
+  `isEnable` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `title`, `pictureUrl`, `isEnable`) VALUES
+(1, 'Business', 'business_02_thump.jpg', 0),
+(2, 'Technology', 'tech_01_thump.jpg', 0),
+(4, 'Fiction', 'fiction_02_thump.jpg', 0),
+(5, 'Mystery', 'mystery_03_thump.jpg', 0),
+(11, 'Food', 'food_03_thump.jpg', 0),
+(12, 'Art', 'art_category_thump.jpg', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `comments` varchar(1000) NOT NULL,
+  `rating` text NOT NULL,
+  `isEnable` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `post_id`, `user_id`, `comments`, `rating`, `isEnable`) VALUES
+(4, 132, 12, 'It\'s an awesome and amazing book , you must have to read it because it contain lot of interesting facts regarding nothing', '4', 0),
+(8, 135, 12, 'it\'s awesome book having great and fantastic content which make its worthy', '5', 0),
+(9, 135, 13, '\'it\'\'s an awesome book having great content along with lot of useful material and worth to buy it\'', '5', 0),
+(10, 131, 13, '\'Awesome and great book contain great information as well as worth of buying\'', '5', 0),
+(11, 123, 13, '\'The lean start up contain great information regarding how to make any start up successful\'', '5', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `favourites`
+--
+
+CREATE TABLE `favourites` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `favourites`
+--
+
+INSERT INTO `favourites` (`id`, `user_id`, `post_id`) VALUES
+(1, 1, 96),
+(3, 1, 88),
+(10, 12, 104),
+(12, 12, 132),
+(14, 13, 135),
+(15, 13, 132),
+(16, 13, 126),
+(17, 13, 116);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `policy`
+--
+
+CREATE TABLE `policy` (
+  `id` int(11) NOT NULL,
+  `title` text NOT NULL,
+  `description` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `policy`
+--
+
+INSERT INTO `policy` (`id`, `title`, `description`) VALUES
+(1, 'Privacy Policy', '<p id=\"docs-internal-guid-5a035dfd-7fff-eb5a-2d36-cf177b7467cc\" dir=\"ltr\" style=\"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">We are committed to protecting your privacy</span></p>\r\n<p dir=\"ltr\" style=\"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">We collect the minimum amount of information about you that is commensurate with providing you with a satisfactory service. This policy indicates the type of processes that may result in data being collected about you. Your use of this website gives us the right to collect that information. </span></p>\r\n<p dir=\"ltr\" style=\"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Information Collected</span></p>\r\n<p dir=\"ltr\" style=\"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">We may collect any or all of the information that you give us depending on the type of transaction you enter into, including your name, address, telephone number, and email address, together with data about your use of the website. Other information that may be needed from time to time to process a request may also be collected as indicated on the website.&rsquo;</span></p>\r\n<p dir=\"ltr\" style=\"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">We use </span><span style=\"font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Location Permissions</span></p>\r\n<ul style=\"margin-top: 0pt; margin-bottom: 0pt;\">\r\n<li dir=\"ltr\" style=\"list-style-type: disc; font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;\">\r\n<p dir=\"ltr\" style=\"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Location Access (For accessing Weather forecasting of specific location)</span></p>\r\n</li>\r\n</ul>\r\n<p dir=\"ltr\" style=\"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Information Use</span></p>\r\n<p dir=\"ltr\" style=\"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">We use the information collected primarily to process the task for which you visited the website. Data collected in the UK is held in accordance with the Data Protection Act. All reasonable precautions are taken to prevent unauthorised access to this information. This safeguard may require you to provide additional forms of identity should you wish to obtain information about your account details.</span></p>\r\n<p dir=\"ltr\" style=\"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Cookies</span></p>\r\n<p dir=\"ltr\" style=\"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Your Internet browser has the in-built facility for storing small files - \"cookies\" - that hold information which allows a website to recognise your account. Our website takes advantage of this facility to enhance your experience. You have the ability to prevent your computer from accepting cookies but, if you do, certain functionality on the website may be impaired.</span></p>\r\n<p dir=\"ltr\" style=\"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Disclosing Information</span></p>\r\n<p dir=\"ltr\" style=\"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">We do not disclose any personal information obtained about you from this website to third parties unless you permit us to do so by ticking the relevant boxes in registration or competition forms. We may also use the information to keep in contact with you and inform you of developments associated with us. You will be given the opportunity to remove yourself from any mailing list or similar device. If at any time in the future we should wish to disclose information collected on this website to any third party, it would only be with your knowledge and consent. </span></p>\r\n<p dir=\"ltr\" style=\"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">We may from time to time provide information of a general nature to third parties - for example, the number of individuals visiting our website or completing a registration form, but we will not use any information that could identify those individuals. </span></p>\r\n<p dir=\"ltr\" style=\"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">In addition Dummy may work with third parties for the purpose of delivering targeted behavioural advertising to the Dummy website. Through the use of cookies, anonymous information about your use of our websites and other websites will be used to provide more relevant adverts about goods and services of interest to you. For more information on online behavioural advertising and about how to turn this feature off, please visit youronlinechoices.com/opt-out.</span></p>\r\n<p dir=\"ltr\" style=\"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Changes to this Policy</span></p>\r\n<p dir=\"ltr\" style=\"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Any changes to our Privacy Policy will be placed here and will supersede this version of our policy. We will take reasonable steps to draw your attention to any changes in our policy. However, to be on the safe side, we suggest that you read this document each time you use the website to ensure that it still meets with your approval.</span></p>\r\n<p dir=\"ltr\" style=\"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Contacting Us</span></p>\r\n<p dir=\"ltr\" style=\"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">If you have any questions about our Privacy Policy, or if you want to know what information we have collected about you, please email us at yourEmail@gmail.com. You can also correct any factual errors in that information or require us to remove your details form any list under our control.</span></p>\r\n<p><br /><br /><br /><br /><br /></p>');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL,
+  `artist_id` int(11) NOT NULL,
+  `cat_id` int(11) NOT NULL,
+  `title` text NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `tags` text NOT NULL,
+  `postType` text NOT NULL,
+  `coverUrl` varchar(1000) NOT NULL,
+  `originalUrl` varchar(1000) NOT NULL,
+  `videoUrl` varchar(1000) NOT NULL,
+  `likes` double NOT NULL DEFAULT '0',
+  `dislikes` double NOT NULL DEFAULT '0',
+  `downloads` double NOT NULL DEFAULT '0',
+  `comments` double NOT NULL DEFAULT '0',
+  `isFeatured` int(11) NOT NULL,
+  `isEnable` tinyint(1) NOT NULL DEFAULT '0',
+  `streamUrl` text NOT NULL,
+  `fbUrl` text NOT NULL,
+  `twitterUrl` text NOT NULL,
+  `webUrl` text NOT NULL,
+  `singleStation` int(11) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `artist_id`, `cat_id`, `title`, `description`, `tags`, `postType`, `coverUrl`, `originalUrl`, `videoUrl`, `likes`, `dislikes`, `downloads`, `comments`, `isFeatured`, `isEnable`, `streamUrl`, `fbUrl`, `twitterUrl`, `webUrl`, `singleStation`) VALUES
+(1, 24, 12, 'Lettering and Modern Calligraphy: A Beginner Guide', '<p>Learn to letter and create beautiful designs with this beginner guide and workbook! Every page is filled with tips, tricks encouragement and practice space to kickstart your lettering journey! Learn 5 different alphabet styles, upper and lower case letters, practice connections and dive into design and composition with this beautiful lettering book</p>', 'art,calligraphy,lettering,beginner,guide', 'file', 'typography_01_thump.png', 'typography_01.png', '', 4, 0, 3, 0, 0, 0, 'freud-dream-psychology.epub', '', '', '', 0),
+(2, 23, 12, 'The Design Studio Method: Creative Problem Solving', '<p>The struggle with balancing creative products that are innovative, technically feasible, and financially sound is one designers and web professionals go through every day. The Design Studio Method is a creative problem solving process that allows you to quickly generate ideas, evaluate them, and reach consensus, achieving that balancing act</p>', 'art,ux,user interface,designing', 'file', 'ux_thump.png', 'ux.png', '', 4, 0, 3, 0, 0, 0, 'freud-dream-psychology.epub', '', '', '', 0),
+(116, 25, 2, 'Early Bird', '<p>dil mein tum</p>', 'dil,mein,ho,tum,arman,malik,ringtones', 'link', 'early_bird_thump.jpg', 'early_bird.jpg', '', 4, 0, 38, 0, 0, 0, 'https://www.tutorialspoint.com/android/android_tutorial.pdf', '', '', '', 0),
+(117, 25, 12, 'Animated Storytelling : Creating Animation and Motion Graphics', '<p>Animation is a limitless medium for telling stories. Artists can create worlds, defy gravity, flip from factual to fantasy, and transport audiences to places they never imagined. The challenge is having the discipline to reel it in and be intentional about your storytelling choices. This book shows you how.</p>', 'animated,art,animation,motion graphics,animated storytelling', 'link', 'animated_storytelling_thump.png', 'animated_storytelling.png', '', 4, 0, 29, 0, 1, 0, 'https://www.tutorialspoint.com/android/android_tutorial.pdf', '', '', '', 0),
+(118, 23, 2, 'How to Build a Billion Dollar App', '<p>In <em>How to Build a Billion Dollar App</em>, serial tech entrepreneur George Berkowski gives you exclusive access to the secrets behind the success of the select group of apps that have achieved billion-dollar success.</p>', 'technology,app,billion,dollar', 'link', 'tech_02_thump.png', 'tech_02.png', '', 4, 0, 5, 0, 0, 0, 'https://www.tutorialspoint.com/android/android_tutorial.pdf', '', '', '', 0),
+(119, 11, 12, 'Lean UX : 2nd Edition', '<p>Lean UX has become the preferred approach to interaction design, tailor-made for today agile teams. In the second edition of this award winning book, leading advocates Jeff Gothelf and Josh Seiden expand on the valuable Lean UX principles, tactics, and techniques covered in the first edition to share how product teams can easily incorporate design, experimentation, iteration, and continuous learning from real users into their Agile process</p>', 'art,ux,design,ui,lean,ux', 'file', 'lean_ux_thump.png', 'lean_ux.png', '', 4, 0, 5, 0, 0, 0, 'freud-dream-psychology.epub', '', '', '', 0),
+(120, 25, 2, 'Unreal for Mobile and Standalone VR', '<p>Apply the techniques needed to build VR applications for mobile and standalone head-mounted displays (HMDs) using the Unreal Engine. This book covers the entire VR ecosystem including production tools, Unreal engine, workflows, performance and optimization, and presents two fully-developed projects to reinforce what you have learned.</p>', 'technology,vr,mobile,app', 'file', 'tech_05_thump.png', 'tech_05.png', '', 4, 0, 29, 0, 0, 0, 'freud-dream-psychology.epub', '', '', '', 0),
+(121, 23, 2, 'Zero to One: Notes on Start Up', '<p>The next Bill Gates will not build an operating system. The next Larry Page or Sergey Brin did not make a search engine. If you are copying these guys, you are not learning from them. It is easier to copy a model than to make something new</p>', 'technology,start up,hero', 'file', 'tech_03_thump.png', 'tech_03.png', '', 4, 0, 4, 0, 0, 0, 'freud-dream-psychology.epub', '', '', '', 0),
+(122, 23, 2, 'The $100 Startup: Fire Your Boss', '<p>You no longer need to work nine-to-five in a big company to pay the mortgage, send your kids to school and afford that yearly holiday. You can quit the rat race and start up on your own &ndash; and you do not need an MBA or a huge investment to do</p>', 'technology,start up', 'link', 'tech_04_thump.png', 'tech_04.png', '', 4, 0, 6, 0, 0, 0, 'https://www.tutorialspoint.com/android/android_tutorial.pdf', '', '', '', 0),
+(123, 23, 1, 'The Lean Startup', '<p><em>The Lean Startup</em> is a new approach to business that is being adopted around the world. It is changing the way companies are built and new products are launched.</p>\r\n<p><em>The Lean Startup</em> is about learning what your customers really want. It is about testing your vision continuously, adapting and adjusting before it is too late.</p>', 'business,start up,lean', 'file', 'lean_start_Up_thump.png', 'lean_start_Up.png', '', 4, 0, 4, 0, 1, 0, 'freud-dream-psychology.epub', '', '', '', 0),
+(124, 24, 4, 'Harry Potter and the Philosopher Stone - 1', '<p>Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle</p>', 'fiction,harry,potter', 'file', 'harry_01_thump.png', 'harry_01.png', '', 4, 0, 5, 0, 0, 0, 'freud-dream-psychology.epub', '', '', '', 0),
+(125, 24, 4, 'Harry Potter and the Philosopher Stone - 2', '<p>When a letter arrives for unhappy but ordinary Harry Potter, a decade-old secret is revealed to him that apparently he is the last to know. His parents were wizards, killed by a Dark Lord curse when Harry was just a baby, and which he somehow survived</p>', 'fiction,harry,potter', 'file', 'harry_02_thump.png', 'harry_02.png', '', 4, 0, 4, 0, 0, 0, 'freud-dream-psychology.epub', '', '', '', 0),
+(126, 25, 5, 'Sweet Bird of Youth', '<p>kul dj</p>', 'ringtone,trance,kul,dj', 'file', 'sweet-bird-of-youth-2_thump.jpg', 'sweet-bird-of-youth-2.jpg', '', 4, 0, 81, 0, 0, 0, 'freud-dream-psychology.epub', '', '', '', 0),
+(127, 21, 11, 'The Skinny Slow Cooker Recipe Book', '<p>This collection of easy to prepare and delicious low calorie recipes will help you make inexpensive, healthy meals for you and your family with the minimum of fuss. These delicious recipes use simple and inexpensive fresh ingredients, are packed full of flavour and goodness</p>', 'food,recipe,book,slow cooker', 'file', 'recipe_02_thump.png', 'recipe_02.png', '', 4, 0, 1, 0, 0, 0, 'freud-dream-psychology.epub', '', '', '', 0),
+(128, 21, 12, 'The Graphic Designer Digital Toolkit', '<p>Being a successful graphic designer today requires more than knowing the essential features of industry-standard software applications. It also requires an understanding of how to integrate these programs into a seamless whole while producing work that conforms to design principles and client expectation</p>', 'art,hraphic,designer,toolkit', 'link', 'graphic_design_01_thump.png', 'graphic_design_01.png', '', 4, 0, 4, 0, 0, 0, 'https://www.tutorialspoint.com/android/android_tutorial.pdf', '', '', '', 0),
+(129, 25, 2, 'Timber', '<p>mily,ho,tum</p>', 'mile,ho,tum,bollywood,ringtone', 'file', 'timber_thump.jpg', 'timber.jpg', '', 4, 0, 3, 0, 0, 0, 'freud-dream-psychology.epub', '', '', '', 0),
+(130, 21, 11, 'Carbs & Cals Carb & Calorie Counter', '<p>Our visual method of showing hundreds of food photos makes counting carbs and calories a breeze. With up to 6 portion photos for each food item, choosing sensible portion sizes is quick and easy</p>', 'food,calorie,counter', 'file', 'recipe_01_thump.png', 'recipe_01.png', '', 4, 0, 5, 0, 0, 0, 'freud-dream-psychology.epub', '', '', '', 0),
+(131, 22, 1, 'Think and Grow Rich by Napolean Hills', '<p>Napoleon Hill, America most beloved motivational author, devoted 25 years to finding out how the wealthy became that way. After interviewing over 500 of the most affluent men and women of his time, he uncovered the secret to great wealth based on the notion that if we can learn to think like the rich, we can start to behave like them. By understanding and applying the thirteen simple steps that constitute Hill formula, you can achieve your goals, change your life and join the ranks of the rich and successful.</p>', 'business,think,grow,rich,napolean hills', 'file', 'napolean_hill_thump.png', 'napolean_hill.png', '', 4, 0, 13, 0, 1, 0, 'freud-dream-psychology.epub', '', '', '', 0),
+(132, 25, 2, 'The Housekeeper and the Professor', '<p>He is a brilliant maths professor with a peculiar problem - ever since a traumatic head injury seventeen years ago, he has lived with only eighty minutes of short-term memory.</p>', 'waada,bollywood,ringtone', 'file', 'housekeeper_and_professor_thump.jpg', 'housekeeper_and_professor.jpg', '', 4, 0, 12, 0, 0, 0, 'freud-dream-psychology.epub', '', '', '', 0),
+(135, 25, 12, 'Sea of Poppies ', '<p>A motley array of sailors and stowaways, coolies and convicts is sailing down the Hooghly aboard the Ibis on its way to Mauritius.</p>', 'sea,of,poppies,art', 'file', 'sea_of_poppies_thump.jpg', 'sea_of_poppies.jpg', '', 4, 0, 3, 0, 0, 0, 'freud-dream-psychology.epub', '', '', '', 0),
+(136, 23, 1, 'Hacking Growth: How Today Fastest-Growing Companies Drive Breakout Success', '<p>HACKING GROWTH is a highly accessible, practical, method for growth that involves cross-functional teams and continuous testing and iteration. Hacking Growth does for marketshare growth what THE LEAN STARTUP does for product development and BUSINESS MODEL GENERATION does for strategy. HACKING GROWTH focuses on <em>customers </em>- how to attain them, retain them, engage them, and monetize them - rather than product.</p>', 'business,hacking,growth,strategy', 'file', 'hacking_growth_thump.png', 'hacking_growth.png', '', 4, 0, 63, 0, 0, 0, 'freud-dream-psychology.epub', '', '', '', 0),
+(137, 23, 1, 'Trillion Dollar Coach: The Leadership Handbook ', '<p>Based on interviews with over eighty people who knew and loved Bill Campbell, <em>Trillion Dollar Coach</em> explains the Coach principles and illustrates them with stories from the many great people and companies with which he worked</p>', 'business,trillion ,dollar,handbook', 'file', 'trillion_dollar_coach_thump.png', 'trillion_dollar_coach.png', '', 4, 0, 4, 0, 1, 0, 'freud-dream-psychology.epub', '', '', '', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `report`
+--
+
+CREATE TABLE `report` (
+  `id` int(11) NOT NULL,
+  `user_id` text NOT NULL,
+  `post_id` text NOT NULL,
+  `report` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `report`
+--
+
+INSERT INTO `report` (`id`, `user_id`, `post_id`, `report`) VALUES
+(1, '13', '132', 'it\'s not good etc etc');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `fname` text NOT NULL,
+  `lname` text NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `password` text NOT NULL,
+  `avatar` text NOT NULL,
+  `isEnable` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `fname`, `lname`, `email`, `password`, `avatar`, `isEnable`) VALUES
+(12, 'Haris', 'Farooq', 'testing@gmail.com', '12345', '12.png', 0),
+(13, 'Alex', 'Smith', 'test01@gmail.com', '123456', '13.png', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `verification`
+--
+
+CREATE TABLE `verification` (
+  `id` int(11) NOT NULL,
+  `type` text NOT NULL,
+  `api` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `verification`
+--
+
+INSERT INTO `verification` (`id`, `type`, `api`) VALUES
+(1, 'rest_api_authorization', 12345678);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `admob`
+--
+ALTER TABLE `admob`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `artist`
+--
+ALTER TABLE `artist`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `favourites`
+--
+ALTER TABLE `favourites`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `policy`
+--
+ALTER TABLE `policy`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `report`
+--
+ALTER TABLE `report`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `verification`
+--
+ALTER TABLE `verification`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `api` (`api`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `admob`
+--
+ALTER TABLE `admob`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `artist`
+--
+ALTER TABLE `artist`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `favourites`
+--
+ALTER TABLE `favourites`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `policy`
+--
+ALTER TABLE `policy`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
+
+--
+-- AUTO_INCREMENT for table `report`
+--
+ALTER TABLE `report`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `verification`
+--
+ALTER TABLE `verification`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

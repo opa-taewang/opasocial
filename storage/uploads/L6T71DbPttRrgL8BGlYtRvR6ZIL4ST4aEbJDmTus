@@ -1,0 +1,115 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: Sep 16, 2019 at 01:41 AM
+-- Server version: 10.2.26-MariaDB-cll-lve
+-- PHP Version: 7.2.7
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `mxz123_dev`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `packages`
+--
+
+CREATE TABLE `packages` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `position` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hot_selling` tinyint(1) DEFAULT 0,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price_per_item` decimal(15,7) NOT NULL,
+  `seller_cost` decimal(15,7) NOT NULL DEFAULT -1.0000000,
+  `minimum_quantity` int(10) UNSIGNED NOT NULL,
+  `maximum_quantity` int(10) UNSIGNED NOT NULL,
+  `performance` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Not Enough Data',
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` enum('ACTIVE','INACTIVE') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `service_id` int(10) UNSIGNED NOT NULL,
+  `preferred_api_id` int(10) UNSIGNED DEFAULT NULL,
+  `custom_comments` tinyint(1) NOT NULL DEFAULT 0,
+  `refillbtn` tinyint(4) NOT NULL DEFAULT 0,
+  `features` enum('No','Drip Feed','Auto Like','Auto View') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'No',
+  `license_codes` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `script` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `script_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ip` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `downloads` int(11) DEFAULT 0,
+  `user_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `packages`
+--
+
+INSERT INTO `packages` (`id`, `position`, `name`, `hot_selling`, `slug`, `price_per_item`, `seller_cost`, `minimum_quantity`, `maximum_quantity`, `performance`, `description`, `image`, `status`, `service_id`, `preferred_api_id`, `custom_comments`, `refillbtn`, `features`, `license_codes`, `script`, `script_name`, `ip`, `downloads`, `user_id`, `created_at`, `updated_at`) VALUES
+(3, 0, 'Fan Page Followers', 0, 'fan-page-followers', '0.0010000', '-1.0000000', 50, 10000000, 'Not Enough Data', '<p style=\"margin-bottom: 0px; padding: 0px 0px 1em; border: 0px; outline: 0px; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-size: 14px; vertical-align: baseline; text-size-adjust: 100%; color: rgb(102, 102, 102); font-family: &quot;Open Sans&quot;, Helvetica, Arial, Lucida, sans-serif;\"><span style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; background: 0px 0px; vertical-align: baseline; text-size-adjust: 100%; font-weight: 700;\">Note: MXZ PRO panel requires domain name during purchase. You must own a domain and change the nameservers of your domain to our servers. We will give the instruction guide after purchase. Your panel will be full ready in 24 – 48 hrs.&nbsp;&nbsp;</span></p><p style=\"margin-bottom: 0px; padding: 0px 0px 1em; border: 0px; outline: 0px; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-size: 14px; vertical-align: baseline; text-size-adjust: 100%; color: rgb(102, 102, 102); font-family: &quot;Open Sans&quot;, Helvetica, Arial, Lucida, sans-serif;\">Some COOL features such as,</p><p style=\"margin-bottom: 0px; padding: 0px 0px 1em; border: 0px; outline: 0px; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-size: 14px; vertical-align: baseline; text-size-adjust: 100%; color: rgb(102, 102, 102); font-family: &quot;Open Sans&quot;, Helvetica, Arial, Lucida, sans-serif;\">ADvanced Dashboard for your customers,</p><p style=\"margin-bottom: 0px; padding: 0px 0px 1em; border: 0px; outline: 0px; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-size: 14px; vertical-align: baseline; text-size-adjust: 100%; color: rgb(102, 102, 102); font-family: &quot;Open Sans&quot;, Helvetica, Arial, Lucida, sans-serif;\"><b style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; background: 0px 0px; vertical-align: baseline; text-size-adjust: 100%;\">Advanced Support Ticket system</b>, – Categories, image upload option.</p><p style=\"margin-bottom: 0px; padding: 0px 0px 1em; border: 0px; outline: 0px; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-size: 14px; vertical-align: baseline; text-size-adjust: 100%; color: rgb(102, 102, 102); font-family: &quot;Open Sans&quot;, Helvetica, Arial, Lucida, sans-serif;\"><b style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; background: 0px 0px; vertical-align: baseline; text-size-adjust: 100%;\">Advanced Service and Package System,</b>&nbsp;– Ranking system, Deleting, Activating/inactivating With a Single Click.</p><h4 style=\"margin: 0px; padding: 0px 0px 10px; border: 0px; outline: 0px; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-size: 18px; vertical-align: baseline; text-size-adjust: 100%; color: rgb(51, 51, 51); font-weight: 500; line-height: 1em; font-family: &quot;Open Sans&quot;, Helvetica, Arial, Lucida, sans-serif;\"><b style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; background: 0px 0px; vertical-align: baseline; text-size-adjust: 100%;\">Moderator –&nbsp;</b>You can Hire a part time/ full time employee in your website to take care of orders , support. they have restricted access to few admin pages.</h4><p style=\"margin-bottom: 0px; padding: 0px 0px 1em; border: 0px; outline: 0px; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-size: 14px; vertical-align: baseline; text-size-adjust: 100%; color: rgb(102, 102, 102); font-family: &quot;Open Sans&quot;, Helvetica, Arial, Lucida, sans-serif;\">&nbsp;</p><h4 style=\"margin: 0px; padding: 0px 0px 10px; border: 0px; outline: 0px; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-size: 18px; vertical-align: baseline; text-size-adjust: 100%; color: rgb(51, 51, 51); font-weight: 500; line-height: 1em; font-family: &quot;Open Sans&quot;, Helvetica, Arial, Lucida, sans-serif;\"><b style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; background: 0px 0px; vertical-align: baseline; text-size-adjust: 100%;\">Instagram Autolikes &amp; Autoviews –&nbsp;</b>Convert any Instagram like &amp; view service into an automatic service. Script will check user profiles for new posts &amp; will automatically submit orders.</h4><p style=\"margin-bottom: 0px; padding: 0px 0px 1em; border: 0px; outline: 0px; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-size: 14px; vertical-align: baseline; text-size-adjust: 100%; color: rgb(102, 102, 102); font-family: &quot;Open Sans&quot;, Helvetica, Arial, Lucida, sans-serif;\"><b style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; background: 0px 0px; vertical-align: baseline; text-size-adjust: 100%;\">Drip feed,&nbsp;</b></p><h4 style=\"margin: 0px; padding: 0px 0px 10px; border: 0px; outline: 0px; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-size: 18px; vertical-align: baseline; text-size-adjust: 100%; color: rgb(51, 51, 51); font-weight: 500; line-height: 1em; font-family: &quot;Open Sans&quot;, Helvetica, Arial, Lucida, sans-serif;\"><b style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; background: 0px 0px; vertical-align: baseline; text-size-adjust: 100%;\">Broadcast System,</b></h4><p style=\"margin-bottom: 0px; padding: 0px 0px 1em; border: 0px; outline: 0px; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-size: 14px; vertical-align: baseline; text-size-adjust: 100%; color: rgb(102, 102, 102); font-family: &quot;Open Sans&quot;, Helvetica, Arial, Lucida, sans-serif;\">&nbsp;</p><h4 style=\"margin: 0px; padding: 0px 0px 10px; border: 0px; outline: 0px; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-size: 18px; vertical-align: baseline; text-size-adjust: 100%; color: rgb(51, 51, 51); font-weight: 500; line-height: 1em; font-family: &quot;Open Sans&quot;, Helvetica, Arial, Lucida, sans-serif;\"><b style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; background: 0px 0px; vertical-align: baseline; text-size-adjust: 100%;\">Affliate System,</b></h4><p style=\"margin-bottom: 0px; padding: 0px 0px 1em; border: 0px; outline: 0px; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-size: 14px; vertical-align: baseline; text-size-adjust: 100%; color: rgb(102, 102, 102); font-family: &quot;Open Sans&quot;, Helvetica, Arial, Lucida, sans-serif;\"><b style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; background: 0px 0px; vertical-align: baseline; text-size-adjust: 100%;\">Seller Sync System,</b></p><p style=\"margin-bottom: 0px; padding: 0px 0px 1em; border: 0px; outline: 0px; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-size: 14px; vertical-align: baseline; text-size-adjust: 100%; color: rgb(102, 102, 102); font-family: &quot;Open Sans&quot;, Helvetica, Arial, Lucida, sans-serif;\"><b style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; background: 0px 0px; vertical-align: baseline; text-size-adjust: 100%;\">IP BLOCKING SYSTEM</b>&nbsp;– to reduce spam. Best feature.</p><p style=\"margin-bottom: 0px; padding: 0px 0px 1em; border: 0px; outline: 0px; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-size: 14px; vertical-align: baseline; text-size-adjust: 100%; color: rgb(102, 102, 102); font-family: &quot;Open Sans&quot;, Helvetica, Arial, Lucida, sans-serif;\">And Much More Cool Features.</p><p style=\"margin-bottom: 0px; padding: 0px 0px 1em; border: 0px; outline: 0px; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-size: 14px; vertical-align: baseline; text-size-adjust: 100%; color: rgb(102, 102, 102); font-family: &quot;Open Sans&quot;, Helvetica, Arial, Lucida, sans-serif;\">Panel Setup Guide will be given,<br>Cheap smm panel API list will be given,<br>Support for 1 month.<br>Additional Addons with charges.</p><p style=\"margin-bottom: 0px; padding: 0px; border: 0px; outline: 0px; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-size: 14px; vertical-align: baseline; text-size-adjust: 100%; color: rgb(102, 102, 102); font-family: &quot;Open Sans&quot;, Helvetica, Arial, Lucida, sans-serif;\">WHAT ARE YOU WAITING FOR? Order now</p>', '1566357626_want13401-19Ngda1397101253.png', 'ACTIVE', 2, NULL, 0, 0, 'No', 'code1,code2,code3,code4,code5,code6,code7,code8,code9,code10,code11,code12,code13,code14,code15,code16,code17,code18,code19,code20', 'storage/uploads/zI3kEE1zl9r4GuyuHrGjU859FrIut3KI05vKoBXV.', 'books4u.sql', '119.160.65.4', 6, 41, '2019-06-05 04:35:04', '2019-09-09 17:30:29'),
+(4, 9, 'Profile Likes', 0, 'profile-likes', '0.0100000', '-1.0000000', 100, 10000, 'Not Enough Data', 'Buy Facebook Page Likes for your Business Pages. Start growing your accounts instantly. There is a wide range of Country Targeted, Real & Auto Refill options. Choose form a variety of packages, increase your interaction and appeal of your business profiles.', '1566358322_Buy-Facebook-Post-Likes.png', 'ACTIVE', 2, NULL, 0, 1, 'No', '', NULL, NULL, NULL, 0, NULL, '2019-07-18 00:08:50', '2019-08-20 19:32:02'),
+(5, 0, '1000 Followers', 0, '1000-followers', '0.0010000', '-1.0000000', 1000, 1000, 'Not Enough Data', 'Buy Instagram Followers, Likes & More. Start growing your accounts instantly. There is a wide range of Country Targeted, Real & Auto Refill options. Choose form a variety of packages, increase your interaction and appeal of your business profiles.	', '1566358478_instagram-likes.jpg', 'ACTIVE', 3, NULL, 0, 0, 'No', '', NULL, NULL, NULL, 0, NULL, '2019-07-18 00:10:15', '2019-08-20 19:34:51'),
+(6, 0, '100 Retweets', 0, '100-retweets', '1.0000000', '-1.0000000', 100, 100, 'Not Enough Data', 'Buy Twitter Followers, Likes & More. Start growing your accounts instantly. There is a wide range of Country Targeted, Real & Auto Refill options. Choose form a variety of packages, increase your interaction and appeal of your business profiles.	', '1566358643_Twitter-banner-1030x539.jpg', 'ACTIVE', 4, NULL, 0, 0, 'No', '', NULL, NULL, NULL, 0, NULL, '2019-07-18 00:11:31', '2019-08-20 19:37:23'),
+(7, 0, 'Netflix UHD private 1 Month', 0, 'netflix-uhd-private-1-month', '12.0000000', '-1.0000000', 1, 1, 'Not Enough Data', '1 Year Warranty Covered 🔥🔥 Worldwide🌏\r\n\r\nYou Get Details After Order & Payment Is Complete ', '1566359223_Untitled-1.jpg', 'ACTIVE', 5, NULL, 0, 0, 'No', 'jjjjjj,lllll,nnnnn,nnnmk', NULL, NULL, NULL, 0, NULL, '2019-07-18 00:12:15', '2019-08-21 20:56:24'),
+(8, 0, 'Page Likes', 0, 'page-likes', '0.5000000', '-1.0000000', 500, 500, 'Not Enough Data', 'Buy facebook page likes. Best Quality\r\nINSTANT START\r\n15000/DAY\r\n10 Days Guarantee', '1566357748_fanpage.jpg.png', 'ACTIVE', 2, NULL, 0, 0, 'No', '', 'storage/uploads/2JMpYq2Yim3NLB4BPaIfINsgt9OOSPcA4x7LuBu8.txt', 'admin.txt', NULL, 0, NULL, NULL, '2019-08-20 19:22:28'),
+(9, 0, ' Post/Photo Likes', 0, 'postphoto-likes', '3.4990000', '-1.0000000', 50, 10000000, 'Not Enough Data', 'Instant Start\r\nNo Refill Guarantee\r\nPut Link Of Facebook Profile/Page Post\r\n2500/day speed', '1566357929_Buy-Facebook-Post-Likes.png', 'ACTIVE', 2, NULL, 0, 0, 'Auto Like', '', NULL, NULL, NULL, 0, NULL, NULL, '2019-08-20 19:25:29'),
+(10, 10, 'Post View', 0, 'post-view', '1.0000000', '-1.0000000', 10, 1000, 'Not Enough Data', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis', '1566358339_Buy-Facebook-Video-Views.png', 'ACTIVE', 2, NULL, 0, 1, 'Auto View', '', NULL, NULL, NULL, 0, NULL, '2019-07-20 22:49:01', '2019-08-20 19:32:19'),
+(11, 0, 'Video Views', 1, 'video-views', '0.0100000', '-1.0000000', 10, 10000000, 'Not Enough Data', 'Instant Start\r\n300k-800k/day\r\nBest Quality', '1566358099_Buy-Facebook-Video-Views.png', 'ACTIVE', 2, NULL, 1, 1, 'Drip Feed', 'aaaaa', NULL, NULL, NULL, 0, NULL, '2019-08-04 02:38:23', '2019-08-20 19:28:19'),
+(12, 0, 'Random Comments', 1, 'random-comments', '3.4990000', '-1.0000000', 1000, 1000, 'Not Enough Data', '0-1 Hour Start! \r\nPut Each Comment On A Line \r\nComments Including Mentions (\"@\") Are Not Accepted ', '1566358212_ee2886189019e58227887d2f25c9a27c.jpg', 'ACTIVE', 2, NULL, 0, 0, 'No', '', NULL, NULL, NULL, 0, NULL, '2019-08-04 05:15:18', '2019-08-20 19:31:15'),
+(14, 0, '1000 Likes', 1, '1000-likes', '1.0000000', '-1.0000000', 1, 10, 'Not Enough Data', 'Buy Instagram Followers, Likes & More. Start growing your accounts instantly. Th..', '1566199597_3.jpg', 'ACTIVE', 3, NULL, 0, 0, 'No', '', NULL, NULL, NULL, 0, NULL, '2019-08-18 23:26:37', '2019-08-20 19:35:40'),
+(15, 0, 'Monthly', NULL, 'monthly', '25.0000000', '-1.0000000', 1, 1, 'Not Enough Data', 'undefined', '1566359532_Screenshot (563).png', 'ACTIVE', 6, NULL, 0, 0, 'No', 'lllllll', 'storage/uploads/yKI1EMpebumFnQ7y0pJDiAg5u2eZddbCQIEZmlRt.jpeg', 'goundamani2.jpg', NULL, 0, NULL, '2019-08-18 23:31:39', '2019-08-21 20:50:42'),
+(16, 0, 'Video Views', 0, 'video-views', '1.0000000', '-1.0000000', 1, 10, 'Not Enough Data', 'Buy Instagram Followers, Likes & More. Start growing your accounts instantly. Th..', '1566358578_Instagram-Banner-Logo-de-Instagram-vector-logo-instagram-sin-fondo-1000x480.gif', 'ACTIVE', 3, NULL, 0, 0, 'No', 'first,second,third', 'storage/uploads/BEDRecStK2xdSkhuEMlrqc7jiik30zqyJ2nSz7WA.txt', 'admin.txt', NULL, 0, NULL, '2019-08-18 23:33:14', '2019-08-20 19:36:18'),
+(17, 0, 'Lifetime', 1, 'lifetime', '0.0010000', '-1.0000000', 1, 1, 'Not Enough Data', 'Download File Instantly after Payment Is Complete.', '1566359600_Screenshot (563).png', 'ACTIVE', 6, NULL, 0, 0, 'No', '', 'storage/uploads/4hI1k5BSDBApyIR04toxkXvdTOy3x102WbidGwNs.png', 'Screenshot (557).png', NULL, 0, NULL, '2019-08-18 23:46:32', '2019-08-21 20:48:02'),
+(18, 0, 'Batman: The Killing Joke', 0, 'batman-the-killing-joke', '5.0000000', '-1.0000000', 1, 1, 'Not Enough Data', 'Batman: The Killing Joke is an influential one-shot superhero comic book written by Alan Moore and drawn by Brian Bolland, published by DC Comics in 1988', '1566360375_A1O+qcrE5YL.jpg', 'ACTIVE', 7, NULL, 0, 0, 'No', '', NULL, NULL, NULL, 0, NULL, '2019-08-20 20:06:15', '2019-08-20 20:06:15');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `packages`
+--
+ALTER TABLE `packages`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `packages_service_id_foreign` (`service_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `packages`
+--
+ALTER TABLE `packages`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `packages`
+--
+ALTER TABLE `packages`
+  ADD CONSTRAINT `packages_service_id_foreign` FOREIGN KEY (`service_id`) REFERENCES `services` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
